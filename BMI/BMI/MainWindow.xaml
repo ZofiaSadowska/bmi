@@ -1,0 +1,53 @@
+﻿<Window x:Class="BMI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BMI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="290">
+    <Grid>
+
+        <Label HorizontalAlignment="Center" Margin="0,28,0,0"
+               Content="Kalkulator BMI"
+               FontSize="30" FontWeight="Bold" VerticalAlignment="Top"/>
+
+
+        <Label HorizontalAlignment="Left" Margin="24,111,0,0"
+               Content="Waga: " VerticalAlignment="Top">
+        </Label>
+        <TextBox x:Name="txtWzrost" HorizontalAlignment="Left"
+             Margin="87,150,0,0" Width="80" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cmbWzrostJednostka" HorizontalAlignment="Left"
+              Margin="182,146,0,0" Width="60" VerticalAlignment="Top">
+            <ComboBoxItem Content="cm" IsSelected="True"/>
+            <ComboBoxItem Content="cale"/>
+            <ComboBoxItem Content="stopy"/>
+        </ComboBox>
+
+
+        <Label HorizontalAlignment="Left" Margin="27,144,0,0"
+               Content="Wzrost: " VerticalAlignment="Top" RenderTransformOrigin="0.198,0.035"></Label>
+        <TextBox x:Name="txtWaga" HorizontalAlignment="Left"
+             Margin="87,111,0,0" Width="80" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cmbWagaJednostka" HorizontalAlignment="Left"
+              Margin="182,107,0,0" Width="60" VerticalAlignment="Top" >
+            <ComboBoxItem Content="kg" IsSelected="True"/>
+            <ComboBoxItem Content="funty"/>
+        </ComboBox>
+        <Button Content="Oblicz" HorizontalAlignment="Left"
+            Margin="90,236,0,0" VerticalAlignment="Top"
+            Width="97" Height="28" Click="ObliczBMI_Click"/>
+
+        <Label x:Name="txtWynik" HorizontalAlignment="Left"
+               Margin="92,276,0,0" 
+               Content="" VerticalAlignment="Top"
+               Height="25" Width="92"
+               FontSize="13"/>
+        <TextBlock x:Name="txtOpis" HorizontalAlignment="Center"
+            Margin="0,321,0,0" 
+            Text="" VerticalAlignment="Top"
+            Height="96" Width="222"
+            FontSize="13" TextWrapping="Wrap" />
+    </Grid>
+</Window>
