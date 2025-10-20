@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BMI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="290">
+        Title="MainWindow" Height="450" Width="818">
     <Grid>
 
         <Label HorizontalAlignment="Center" Margin="0,28,0,0"
@@ -26,28 +26,49 @@
         </ComboBox>
 
 
-        <Label HorizontalAlignment="Left" Margin="27,144,0,0"
+        <Label HorizontalAlignment="Left" Margin="24,146,0,0"
                Content="Wzrost: " VerticalAlignment="Top" RenderTransformOrigin="0.198,0.035"></Label>
         <TextBox x:Name="txtWaga" HorizontalAlignment="Left"
              Margin="87,111,0,0" Width="80" VerticalAlignment="Top"/>
         <ComboBox x:Name="cmbWagaJednostka" HorizontalAlignment="Left"
               Margin="182,107,0,0" Width="60" VerticalAlignment="Top" >
-            <ComboBoxItem Content="kg" IsSelected="True"/>
-            <ComboBoxItem Content="funty"/>
+            <ComboBoxItem x:Name="ComboWaga" Content="kg" IsSelected="True"/>
+            <ComboBoxItem x:Name="ComboWzrost" Content="funty"/>
         </ComboBox>
         <Button Content="Oblicz" HorizontalAlignment="Left"
-            Margin="90,236,0,0" VerticalAlignment="Top"
+            Margin="325,151,0,0" VerticalAlignment="Top"
             Width="97" Height="28" Click="ObliczBMI_Click"/>
 
         <Label x:Name="txtWynik" HorizontalAlignment="Left"
-               Margin="92,276,0,0" 
+               Margin="562,101,0,0" 
                Content="" VerticalAlignment="Top"
-               Height="25" Width="92"
-               FontSize="13"/>
-        <TextBlock x:Name="txtOpis" HorizontalAlignment="Center"
-            Margin="0,321,0,0" 
+               Height="29" Width="211"
+               FontSize="13"
+                />
+        <TextBlock x:Name="txtOpis" HorizontalAlignment="Left"
+            Margin="553,152,0,0" 
             Text="" VerticalAlignment="Top"
-            Height="96" Width="222"
-            FontSize="13" TextWrapping="Wrap" />
+            Height="54" Width="211"
+            FontSize="13" TextWrapping="Wrap"/>
+        <Label Content="Wynik BMI:" HorizontalAlignment="Left" Height="28" Margin="474,101,0,0" VerticalAlignment="Top" Width="83"/>
+        <Label Content="Kategoria:" HorizontalAlignment="Left" Height="28" Margin="474,150,0,0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="0.5,0.5">
+        </Label>
+        <Label Content="WHR:" HorizontalAlignment="Left" Height="28" Margin="474,222,0,0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="0.5,0.5"/>
+        <Label x:Name="txtWHR" HorizontalAlignment="Left"
+            Margin="562,220,0,0" 
+            Content="" VerticalAlignment="Top"
+            Height="30" Width="211"
+            FontSize="13" RenderTransformOrigin="0.496,0.512"
+                />
+        <Label Content="BMR:" HorizontalAlignment="Left" Height="28" Margin="474,283,0,0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="0.5,0.5"/>
+        <Label x:Name="txtBMR" HorizontalAlignment="Left"
+            Margin="562,283,0,0" 
+            Content="" VerticalAlignment="Top"
+            Height="30" Width="211"
+            FontSize="13"
+                />
+        <Button Content="Wyczyść" HorizontalAlignment="Left" x:Name="wyczysc"
+            Margin="325,208,0,0" VerticalAlignment="Top"
+            Width="97" Height="28" Click="Wyczysc_Button_Click"/>
     </Grid>
 </Window>

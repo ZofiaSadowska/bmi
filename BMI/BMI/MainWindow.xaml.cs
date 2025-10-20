@@ -23,16 +23,18 @@ namespace BMI
         private void ObliczBMI_Click(object sender, RoutedEventArgs e)
         {
             
-                if (string.IsNullOrWhiteSpace(txtWaga.Text) || string.IsNullOrWhiteSpace(txtWzrost.Text))
+            if (string.IsNullOrWhiteSpace(txtWaga.Text) || string.IsNullOrWhiteSpace(txtWzrost.Text))
                 {
                     txtOpis.Text = "Prosze wprowadzic dane";
-                    return;
+
+                return;
                 }
                 if (!double.TryParse(txtWaga.Text, out double waga) ||
                     !double.TryParse(txtWzrost.Text, out double wzrost))
                 {
                     txtOpis.Text = "Prosze wprowadzic poprawne dane";
-                    return;
+
+                return;
                 }
                 
                 
@@ -46,22 +48,30 @@ namespace BMI
                 if ((jednostkaWzrostu == "stopy" || jednostkaWzrostu == "cale") && jednostkaWagi != "funty")
                 {
                     txtOpis.Text = "Prosze podac wage w funtach";
+
                     return;
                 }
 
                 if (jednostkaWzrostu == "cm" && jednostkaWagi != "kg")
                 {
                     txtOpis.Text = "Prosze podac wage w kilogramach.";
-                    return;
+
+                return;
                 }
 
             if (jednostkaWagi == "kg")
             {
                 if (waga >= 30 && waga <= 150)
                 {
-                    txtOpis.Text = "Waga nie miesci sie w zakresie od 30 do 150";
+                    wagaKg = waga;
+
                 }
-                else wagaKg = waga;
+
+                else
+                {
+                    txtOpis.Text = "Waga nie miesci sie w zakresie od 30 do 150";
+                    return;
+                }
 
             }
             else
@@ -74,17 +84,22 @@ namespace BMI
                 {
                     if (wzrost >= 100 && wzrost <= 250)
                     {
-                        txtOpis.Text = "Wzrost nie miesci sie w zakresie od 100 do 250";
+                         wzrostM = wzrost / 100;
+                    
                     }
-                    else wzrostM = wzrost/100;
-
-            }
+                    else 
+                    {
+                    txtOpis.Text = "Wzrost nie miesci sie w zakresie od 100 do 250";
+                    return;
+                    }
+                    
+                }
                 else if(jednostkaWzrostu == "cale")
                 {
                     wzrostM = wzrost * 0.0254;
 
             }
-                else
+                else if(jednostkaWzrostu == "stopy")
                 {
                     wzrostM = wzrost * 0.3048;
 
@@ -104,14 +119,24 @@ namespace BMI
                 else
                     kategoria = "Otyłość. Nie ma rantunku :(";
 
-                bmi = bmi*100;
-                bmi = Math.Round(bmi);
-                bmi = bmi / 100;
+            bmi = bmi * 100;
+            bmi = Math.Round(bmi);
+            bmi = bmi / 100;
 
             txtWynik.Content = bmi;
             txtOpis.Text = kategoria;
             }
-            
-        
+
+        private void Wyczysc_Button_Click(object sender, RoutedEventArgs e)
+        {
+            txtWynik.Content = "";
+            txtOpis.Text = "";
+            txtBMR.Content = "";
+            txtWHR.Content = "";
+            txtWaga.Text = "";
+            txtWzrost.Text = "";
+            ComboWaga.Content = "kg";
+            ComboWzrost.Content = "cm";
+        }
     }
 }
